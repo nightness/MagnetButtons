@@ -1,0 +1,418 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Button name="MagnetButtonActiveTabTemplate" virtual="true" hidden="true">
+      <Size>
+        <AbsDimension x="80" y="16"/>
+      </Size>
+      <Layers>
+        <Layer level="BACKGROUND">
+          <Texture name="$parentLeft" file="Interface\PaperDollInfoFrame\UI-CHARACTER-ACTIVETAB">
+            <Size>
+              <AbsDimension x="16" y="42"/>
+            </Size>
+            <Anchors>
+              <Anchor point="TOPLEFT"/>
+            </Anchors>
+            <TexCoords left="0.0" right="0.25" top="0.0" bottom="1.0"/>
+          </Texture>
+          <Texture name="$parentMiddle" file="Interface\PaperDollInfoFrame\UI-CHARACTER-ACTIVETAB">
+            <Size>
+              <AbsDimension x="54" y="42"/>
+            </Size>
+            <Anchors>
+              <Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+            </Anchors>
+            <TexCoords left="0.25" right="0.75" top="0.0" bottom="1.0"/>
+          </Texture>
+          <Texture name="$parentRight" file="Interface\PaperDollInfoFrame\UI-CHARACTER-ACTIVETAB">
+            <Size>
+              <AbsDimension x="16" y="42"/>
+            </Size>
+            <Anchors>
+              <Anchor point="LEFT" relativeTo="$parentMiddle" relativePoint="RIGHT"/>
+            </Anchors>
+            <TexCoords left="0.75" right="1.0" top="0.0" bottom="1.0"/>
+          </Texture>
+        </Layer>
+      </Layers>
+  </Button>
+
+  <Button name="MagnetButtonInactiveTabTemplate" virtual="true" hidden="true">
+      <Size>
+        <AbsDimension x="80" y="16"/>
+      </Size>
+      <Layers>
+        <Layer level="BACKGROUND">
+          <Texture name="$parentLeft" file="Interface\PaperDollInfoFrame\UI-CHARACTER-INACTIVETAB">
+            <Size>
+              <AbsDimension x="16" y="26"/>
+            </Size>
+            <Anchors>
+              <Anchor point="TOPLEFT"/>
+            </Anchors>
+            <TexCoords left="0.0" right="0.25" top="0.0" bottom="1.0"/>
+          </Texture>
+          <Texture name="$parentMiddle" file="Interface\PaperDollInfoFrame\UI-CHARACTER-INACTIVETAB">
+            <Size>
+              <AbsDimension x="54" y="26"/>
+            </Size>
+            <Anchors>
+              <Anchor point="LEFT" relativeTo="$parentLeft" relativePoint="RIGHT"/>
+            </Anchors>
+            <TexCoords left="0.25" right="0.75" top="0.0" bottom="1.0"/>
+          </Texture>
+          <Texture name="$parentRight" file="Interface\PaperDollInfoFrame\UI-CHARACTER-INACTIVETAB">
+            <Size>
+              <AbsDimension x="16" y="26"/>
+            </Size>
+            <Anchors>
+              <Anchor point="LEFT" relativeTo="$parentMiddle" relativePoint="RIGHT"/>
+            </Anchors>
+            <TexCoords left="0.75" right="1.0" top="0.0" bottom="1.0"/>
+          </Texture>
+        </Layer>
+      </Layers>
+  </Button>
+  
+  <Button name="MagnetButtonTabActiveButtonTemplate" virtual="true" inherits="MagnetButtonActiveTabTemplate">
+      <ButtonText name="$parentText">
+        <Size>
+          <AbsDimension x="0" y="8"/>
+        </Size>
+        <Anchors>
+          <Anchor point="CENTER" relativeTo="$parentMiddle" relativePoint="CENTER">
+            <Offset>
+              <AbsDimension x="0" y="8"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+      </ButtonText>
+      <NormalFont style="GameFontNormalSmall"/>
+  </Button>
+  
+  <Button name="MagnetButtonTabInactiveButtonTemplate" virtual="true" inherits="MagnetButtonInactiveTabTemplate">
+      <ButtonText name="$parentText">
+        <Size>
+          <AbsDimension x="0" y="8"/>
+        </Size>
+        <Anchors>
+          <Anchor point="CENTER" relativeTo="$parentMiddle" relativePoint="CENTER">
+            <Offset>
+              <AbsDimension x="0" y="2"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+      </ButtonText>
+      <NormalFont style="GameFontNormalSmall"/>
+  </Button>
+
+  <Frame name="MagnetButtonProperties" enableMouse="true" movable="true" hidden="true">
+    <Size>
+      <AbsDimension x="580" y="340" />
+    </Size>
+    <Anchors>
+      <Anchor point="CENTER" relativeTo="UIParent">
+        <Offset>
+          <AbsDimension x="0" y="0" />
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+      <BackgroundInsets>
+        <AbsInset left="11" right="12" top="12" bottom="11" />
+      </BackgroundInsets>
+      <TileSize>
+        <AbsValue val="32" />
+      </TileSize>
+      <EdgeSize>
+        <AbsValue val="32" />
+      </EdgeSize>
+    </Backdrop>
+    <Layers>
+      <Layer level="DIALOG">
+        <Texture name="$parentTitleBorder" file="Interface\DialogFrame\UI-DialogBox-Header">
+          <Size>
+            <AbsDimension x="260" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="TOP">
+              <Offset>
+                <AbsDimension x="0" y="5" />
+              </Offset>
+            </Anchor>
+          </Anchors>
+          <TexCoords left="0.2" right="0.8" top="0" bottom="0.6" />
+        </Texture>
+        <FontString name="$parentTitleString" font="Fonts\FRIZQT__.TTF" text="MagnetButton Properties">
+          <Size>
+            <AbsDimension x="240" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="TOP">
+              <Offset>
+                <AbsDimension x="0" y="-4" />
+              </Offset>
+            </Anchor>
+          </Anchors>
+          <FontHeight>
+            <AbsValue val="12" />
+          </FontHeight>
+          <Color r="1" g="0.8196079" b="0" />
+          <Shadow>
+            <Color r="0" g="0" b="0" />
+            <Offset>
+              <AbsDimension x="1" y="-1" />
+            </Offset>
+          </Shadow>
+        </FontString>
+      </Layer>
+    </Layers>
+    <Frames>
+      <Button name="$parentTabButton1Active" text="General" inherits="MagnetButtonTabActiveButtonTemplate" hidden="false">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="25" y="-265" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentTabButton1Inactive" text="General" inherits="MagnetButtonTabInactiveButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="25" y="-266" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+            _MagnetButtonsSetTabFunc(1);
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <Button name="$parentTabButton2Active" text="Left Click" inherits="MagnetButtonTabActiveButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="101" y="-265" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentTabButton2Inactive" text="Left Click" inherits="MagnetButtonTabInactiveButtonTemplate" hidden="false">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="101" y="-266" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+            _MagnetButtonsSetTabFunc(2);
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <Button name="$parentTabButton3Active" text="Right Click" inherits="MagnetButtonTabActiveButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="177" y="-265" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentTabButton3Inactive" text="Right Click" inherits="MagnetButtonTabInactiveButtonTemplate" hidden="false">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="177" y="-266" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+            _MagnetButtonsSetTabFunc(3);
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <Button name="$parentTabButton4Active" text="Middle Click" inherits="MagnetButtonTabActiveButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="253" y="-265" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentTabButton4Inactive" text="Middle Click" inherits="MagnetButtonTabInactiveButtonTemplate" hidden="false">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="253" y="-266" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+            _MagnetButtonsSetTabFunc(4);
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <Button name="$parentTabButton5Active" text="Button 4" inherits="MagnetButtonTabActiveButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="329" y="-265" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentTabButton5Inactive" text="Button 4" inherits="MagnetButtonTabInactiveButtonTemplate" hidden="false">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="329" y="-266" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+            _MagnetButtonsSetTabFunc(5);
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <Button name="$parentTabButton6Active" text="Button 5" inherits="MagnetButtonTabActiveButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="405" y="-265" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentTabButton6Inactive" text="Button 5" inherits="MagnetButtonTabInactiveButtonTemplate" hidden="false">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="405" y="-266" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- OnClick -->
+            _MagnetButtonsSetTabFunc(6);
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <Button name="$parentSaveButton" text="Save" inherits="MagnetButtonsPropsButton">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="168" y="-300" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- Save and Close -->
+            MagnetButtons.Props_Save(self)
+            self:GetParent():Hide();
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentDeleteButton" text="Delete" inherits="MagnetButtonsPropsButton">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="249" y="-300" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- "Delete" Button and Close -->
+            StaticPopup_Show("MAGNET_BUTTONS3");
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentCancelButton" text="Cancel" inherits="MagnetButtonsPropsButton">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="330" y="-300" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            <!-- Just enable button and hide frame -->
+            MagnetButtons.Props_Cancel(self);
+            self:GetParent():Hide();
+          </OnClick>
+        </Scripts>
+      </Button>
+    </Frames>
+    <Scripts>
+      <OnLoad>
+        self:SetFrameStrata("TOOLTIP");
+        self:RegisterForDrag("LeftButton");
+      </OnLoad>
+      <OnDragStart>self:StartMoving();</OnDragStart>
+      <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+      <OnShow>
+        MagnetButtons.Props_OnShow(self);
+        _MagnetButtonsSetTabFunc(1);
+      </OnShow>
+    </Scripts>
+  </Frame>
+
+</Ui>

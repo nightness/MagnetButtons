@@ -1,0 +1,232 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+  
+  <Button name="MagnetButtonsPropsButton" text="Delete" virtual="true">
+    <Size>
+      <AbsDimension x="75" y="26" />
+    </Size>
+    <NormalTexture file="Interface\Buttons\UI-Panel-Button-Up">
+      <TexCoords left="0" right="0.625" top="0" bottom="0.6875" />
+    </NormalTexture>
+    <PushedTexture file="Interface\Buttons\UI-Panel-Button-Down">
+      <TexCoords left="0" right="0.625" top="0" bottom="0.6875" />
+    </PushedTexture>
+    <DisabledTexture file="Interface\Buttons\UI-Panel-Button-Disabled">
+      <TexCoords left="0" right="0.625" top="0" bottom="0.6875" />
+    </DisabledTexture>
+    <HighlightTexture file="Interface\Buttons\UI-Panel-Button-Highlight" alphaMode="ADD">
+      <TexCoords left="0" right="0.625" top="0" bottom="0.6875" />
+    </HighlightTexture>
+    <ButtonText name="$parentText">
+      <FontHeight>
+        <AbsValue val="10" />
+      </FontHeight>
+    </ButtonText>
+    <NormalFont style="GameFontNormal" />
+    <HighlightFont style="GameFontHighlight" />
+    <DisabledFont style="GameFontDisable" />
+  </Button>
+
+  <CheckButton name="MagnetSecureButtonTemplate" inherits="SecureHandlerStateTemplate,SecureActionButtonTemplate,ActionButtonTemplate" virtual="true" id="0">
+    <Size>
+      <AbsDimension x="32" y="32" />
+    </Size>
+    <Anchors>
+      <Anchor point="BOTTOMLEFT">
+        <Offset>
+          <AbsDimension x="0" y="0" />
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <Layers>
+      <Layer level="OVERLAY">
+        <Texture name="$parentIcon">
+          <Size>
+            <AbsDimension x="32" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="BOTTOMLEFT">
+              <Offset>
+                <AbsDimension x="0" y="0" />
+              </Offset>
+            </Anchor>
+          </Anchors>
+        </Texture>
+        <Texture name="$parentAutoCastable" file="Interface\Buttons\UI-AutoCastableOverlay" hidden="true">
+          <Size>
+            <AbsDimension x="58" y="58"/>
+          </Size>
+          <Anchors>
+            <Anchor point="CENTER">
+              <Offset>
+                <AbsDimension x="0" y="0"/>
+              </Offset>
+            </Anchor>
+          </Anchors>
+        </Texture>
+      </Layer>
+    </Layers>
+    <Frames>
+      <Frame name="$parentShine" inherits="AutoCastShineTemplate">
+        <Anchors>
+          <Anchor point="CENTER">
+            <Offset>
+              <AbsDimension x="0" y="0"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Size>
+          <AbsDimension x="28" y="28"/>
+        </Size>
+      </Frame>
+    </Frames>
+    <Scripts>
+      <OnLoad>
+        self.TimeSinceLastUpdate = 0;
+        securecall(MagnetButtons.OnLoad, self);
+      </OnLoad>
+      <OnAttributeChanged>
+        <!-- securecall(ActionButton_UpdateAction, self, name, value); -->
+      </OnAttributeChanged>
+      <OnEvent>
+        securecall(MagnetButtons.OnEvent, self, event, ...);
+      </OnEvent>
+      <OnReceiveDrag>
+        securecall(MagnetButtons.OnReceiveDrag, self);
+      </OnReceiveDrag>
+      <OnEnter>
+        securecall(MagnetButtons.DisplayTooltip, self);
+        securecall(MagnetButtons.OnEnter, self);
+      </OnEnter>
+      <OnLeave>
+        GameTooltip:Hide();
+        securecall(MagnetButtons.OnLeave, self);
+      </OnLeave>
+      <OnUpdate>
+        securecall(MagnetButtons.OnUpdate, self, elapsed);
+      </OnUpdate>
+      <PreClick>
+        securecall(MagnetButtons.PreClick, self, button);
+      </PreClick>
+      <PostClick>
+        securecall(MagnetButtons.PostClick, self, button);
+      </PostClick>
+      <OnMouseDown>
+        securecall(MagnetButtons.OnMouseDown, self, button);
+      </OnMouseDown>
+      <OnMouseUp>
+        securecall(MagnetButtons.OnMouseUp, self);
+        securecall(MagnetButtons.CompanionClickHandler, self);
+        securecall(MagnetButtons.OnUpdate, self);
+      </OnMouseUp>
+    </Scripts>
+    <NormalTexture name="$parentNormalTexture" file="Interface\Buttons\UI-Quickslot2">
+      <Size>
+        <AbsDimension x="52" y="52"/>
+      </Size>
+      <Anchors>
+        <Anchor point="CENTER">
+          <Offset>
+            <AbsDimension x="0" y="0"/>
+          </Offset>
+        </Anchor>
+      </Anchors>
+    </NormalTexture>
+  </CheckButton>
+
+  <Frame name="MagnetButtonFrameDefault" movable="true" hidden="false" virtual="true">
+    <Size>
+      <AbsDimension x="32" y="32" />
+    </Size>
+    <Anchors>
+      <Anchor point="CENTER" relativeTo="UIParent">
+        <Offset>
+          <AbsDimension x="0" y="0" />
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <Backdrop bgFile="Interface\TutorialFrame\TutorialFrameBackground">
+    </Backdrop>
+    <Frames>
+      <CheckButton name="$parentCheckButton" inherits="MagnetSecureButtonTemplate"/>
+    </Frames>
+  </Frame>
+
+  <ScrollFrame name="MySlider_Template" orientation="HORIZONTAL" enableMouse="true" virtual="true">
+    <Size x="144" y="17"/>
+    <HitRectInsets left="0" right="0" top="-10" bottom="-10"/>
+    <Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background"
+        edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+      <EdgeSize val="8"/>
+      <TileSize val="8"/>
+      <BackgroundInsets left="3" right="3" top="6" bottom="6"/>
+    </Backdrop>
+    <ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+      <Size x="32" y="32"/>
+    </ThumbTexture>
+  </ScrollFrame>
+
+  <Frame name="PropertyScrollView" enableMouse="true" movable="true" hidden="true">
+    <Size x="700" y="500"/>
+    <Anchors>
+      <Anchor point="CENTER" relativeTo="UIParent">
+        <Offset>
+          <AbsDimension x="0" y="0" />
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+      <BackgroundInsets>
+        <AbsInset left="11" right="12" top="12" bottom="11" />
+      </BackgroundInsets>
+      <TileSize>
+        <AbsValue val="32" />
+      </TileSize>
+      <EdgeSize>
+        <AbsValue val="32" />
+      </EdgeSize>
+    </Backdrop>
+    <Layers>
+      <Layer level="DIALOG">
+        <Texture name="$parentTitleBorder" file="Interface\DialogFrame\UI-DialogBox-Header">
+          <Size>
+            <AbsDimension x="260" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="TOP">
+              <Offset>
+                <AbsDimension x="0" y="5" />
+              </Offset>
+            </Anchor>
+          </Anchors>
+          <TexCoords left="0.2" right="0.8" top="0" bottom="0.6" />
+        </Texture>
+        <FontString name="$parentTitleString" font="Fonts\FRIZQT__.TTF" text="Test">
+          <Size>
+            <AbsDimension x="240" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="TOP">
+              <Offset>
+                <AbsDimension x="0" y="-4" />
+              </Offset>
+            </Anchor>
+          </Anchors>
+          <FontHeight>
+            <AbsValue val="12" />
+          </FontHeight>
+          <Color r="1" g="0.8196079" b="0" />
+          <Shadow>
+            <Color r="0" g="0" b="0" />
+            <Offset>
+              <AbsDimension x="1" y="-1" />
+            </Offset>
+          </Shadow>
+        </FontString>
+      </Layer>
+    </Layers>
+    <Frames>
+
+    </Frames>
+  </Frame>
+
+</Ui>

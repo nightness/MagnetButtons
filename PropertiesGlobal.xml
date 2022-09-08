@@ -1,0 +1,781 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Frame name="MagnetButtonInterfaceProperties" enableMouse="true" hidden="true">
+    <Anchors>
+      <Anchor point="TOPLEFT">
+        <Offset>
+          <AbsDimension x="0" y="0" />
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <Layers>
+      <Layer>
+        <FontString name="$parentLabel" font="Fonts\FRIZQT__.TTF" text="Global Settings">
+          <Anchors>
+            <Anchor point="TOPLEFT">
+              <Offset>
+                <AbsDimension x="15" y="-15" />
+              </Offset>
+            </Anchor>
+          </Anchors>
+          <FontHeight>
+            <AbsValue val="16" />
+          </FontHeight>
+          <Color r="1" g="0.8196079" b="0" />
+        </FontString>
+        <FontString name="$parentLabel" font="Fonts\FRIZQT__.TTF" text="Design Mode">
+          <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="15" y="-50" />
+            </Offset>
+          </Anchor>
+          </Anchors>
+          <FontHeight>
+            <AbsValue val="12" />
+          </FontHeight>
+          <Color r="1" g="0.8196079" b="0" />
+          <Shadow>
+            <Color r="0" g="0" b="0" />
+            <Offset>
+              <AbsDimension x="1" y="-1" />
+            </Offset>
+          </Shadow>
+        </FontString>
+        <FontString name="$parentLabel" font="Fonts\FRIZQT__.TTF" text="Hide Magnet Buttons" hidden="true">
+          <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="15" y="-225" />
+            </Offset>
+          </Anchor>
+          </Anchors>
+          <FontHeight>
+            <AbsValue val="12" />
+          </FontHeight>
+          <Color r="1" g="0.8196079" b="0" />
+          <Shadow>
+            <Color r="0" g="0" b="0" />
+            <Offset>
+              <AbsDimension x="1" y="-1" />
+            </Offset>
+          </Shadow>
+        </FontString>
+        <FontString name="$parentLabel" font="Fonts\FRIZQT__.TTF" text="Other Settings" hidden="true">
+          <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="15" y="-420" />
+            </Offset>
+          </Anchor>
+          </Anchors>
+          <FontHeight>
+            <AbsValue val="12" />
+          </FontHeight>
+          <Color r="1" g="0.8196079" b="0" />
+          <Shadow>
+            <Color r="0" g="0" b="0" />
+            <Offset>
+              <AbsDimension x="1" y="-1" />
+            </Offset>
+          </Shadow>
+        </FontString>
+      </Layer>
+    </Layers>
+    <Frames>
+
+      <CheckButton name="$parentCheckButtonDisableDesign">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-75" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Disable design mode">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnLoad>
+            MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(true);
+          </OnLoad>
+          <OnClick>
+            if (not MagnetButtonInterfacePropertiesCheckButtonDisableDesign:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonForceAll:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonForceDungeon:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonForceRaid:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonForceBattleground:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonForceArena:GetChecked()) then
+                   MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(true);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonForceAll:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonForceDungeon:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonForceRaid:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonForceArena:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonForceBattleground:SetChecked(false);
+            end
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonForceAll">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-100" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Force all buttons visible">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonForceAll:GetChecked();
+            MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(not isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonForceDungeon:SetChecked(isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonForceRaid:SetChecked(isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonForceArena:SetChecked(isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonForceBattleground:SetChecked(isChecked);
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonForceDungeon">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-125" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Force dungeon buttons visible">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonForceDungeon:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonForceAll:SetChecked(false);
+            end
+            MagnetButtons.DesignModeForceAllCheck();
+            MagnetButtons.DesignModeForceAllUncheck();      
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonForceRaid">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-150" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Force raid buttons visible">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonForceRaid:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonForceAll:SetChecked(false);
+            end
+            MagnetButtons.DesignModeForceAllCheck();
+            MagnetButtons.DesignModeForceAllUncheck();
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonForceArena">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-175" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Force arena buttons visible">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonForceArena:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonForceAll:SetChecked(false);
+            end
+            MagnetButtons.DesignModeForceAllCheck();
+            MagnetButtons.DesignModeForceAllUncheck();          
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonForceBattleground">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-200" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Force battleground buttons visible">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonForceBattleground:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonDisableDesign:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonForceAll:SetChecked(false);
+            end
+            MagnetButtons.DesignModeForceAllCheck();
+            MagnetButtons.DesignModeForceAllUncheck();          
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+
+      <CheckButton name="$parentCheckButtonHideBarNever" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-250" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Always show">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnLoad>
+            MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(true);
+          </OnLoad>
+          <OnClick>
+            if (not MagnetButtonInterfacePropertiesCheckButtonHideBarNever:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonHideBarWorld:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonHideBarDungeon:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonHideBarRaid:GetChecked() and
+                not MagnetButtonInterfacePropertiesCheckButtonHideBarArena:GetChecked()) then
+                   MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(true);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonHideBarDungeon:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonHideBarRaid:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonHideBarArena:SetChecked(false);
+              MagnetButtonInterfacePropertiesCheckButtonHideBarWorld:SetChecked(false);
+            end
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonHideBarAlways" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-275" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Always hide">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:GetChecked();
+            MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(not isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonHideBarWorld:SetChecked(isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonHideBarDungeon:SetChecked(isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonHideBarRaid:SetChecked(isChecked);
+            MagnetButtonInterfacePropertiesCheckButtonHideBarArena:SetChecked(isChecked);
+
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonHideBarWorld" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-300" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Hide in world">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonHideBarWorld:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:SetChecked(false);
+            end
+            MagnetButtons.HideBarCheck();
+            MagnetButtons.HideBarUncheck();  
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonHideBarDungeon" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-325" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Hide in dungeons">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonHideBarDungeon:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:SetChecked(false);
+            end
+            MagnetButtons.HideBarCheck();
+            MagnetButtons.HideBarUncheck();
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonHideBarRaid" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-350" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Hide in raids">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonHideBarRaid:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:SetChecked(false);
+            end
+            MagnetButtons.HideBarCheck();
+            MagnetButtons.HideBarUncheck();
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+      <CheckButton name="$parentCheckButtonHideBarArena" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-375" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Hide in arenas">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <Scripts>
+          <OnClick>
+            local isChecked = MagnetButtonInterfacePropertiesCheckButtonHideBarArena:GetChecked();
+            if (isChecked) then
+              MagnetButtonInterfacePropertiesCheckButtonHideBarNever:SetChecked(false);
+            else
+              MagnetButtonInterfacePropertiesCheckButtonHideBarAlways:SetChecked(false);
+            end
+            MagnetButtons.HideBarCheck();
+            MagnetButtons.HideBarUncheck();    
+          </OnClick>
+        </Scripts>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+
+      <CheckButton name="$parentCheckButtonFadeBlizzardUI" hidden="true">
+        <Size>
+          <AbsDimension x="32" y="32" />
+        </Size>
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="28" y="-440" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Fade Blizzard UI when on a taxi or dead">
+              <Anchors>
+                <Anchor point="LEFT" relativePoint="RIGHT">
+                  <Offset>
+                    <AbsDimension x="-2" y="0" />
+                  </Offset>
+                </Anchor>
+              </Anchors>
+              <FontHeight>
+                <AbsValue val="12" />
+              </FontHeight>
+              <Color r="1" g="1" b="1" />
+              <Shadow>
+                <Color r="0" g="0" b="0" />
+                <Offset>
+                  <AbsDimension x="1" y="-1" />
+                </Offset>
+              </Shadow>
+            </FontString>
+          </Layer>
+        </Layers>
+        <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+        <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+        <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+        <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+        <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+      </CheckButton>
+
+
+    </Frames>
+    <Scripts>
+      <OnLoad>
+        MagnetButtons.AddonProps_OnLoad(self);
+      </OnLoad>
+      <OnShow>
+        MagnetButtons.AddonProps_OnShow(self);
+      </OnShow>
+    </Scripts>
+  </Frame>
+
+</Ui>

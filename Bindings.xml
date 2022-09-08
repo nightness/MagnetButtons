@@ -1,0 +1,5 @@
+<Bindings>
+  <Binding name="MAGBUTTON_CREATE" description="Create new button" header="MAGNETBUTTONS">
+    MagnetButtons.NewEmptyButton();
+  </Binding>
+</Bindings>

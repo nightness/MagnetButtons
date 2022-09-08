@@ -1,0 +1,30 @@
+## Interface: 90207
+## Title: [|cffffd200DoIt!]|r |cff69ccf0<Module> Magnet Buttons|r
+## Author: Nightness
+## Notes: Custom moveable buttons that can lock together or stand alone
+## SavedVariablesPerCharacter: MagnetButtons_ButtonData, MagnetButtons_Global
+## SavedVariables: MagnetButtons_GlobalButtonData
+## Dependencies: DoIt!
+
+## Button XML and Scripts
+scripts/MagnetLock.lua
+scripts/Init.lua
+Widgets.xml
+scripts/Global.lua
+scripts/Buttons.lua
+scripts/ButtonAttributes.lua
+scripts/ButtonOnUpdate.lua
+scripts/ButtonEvents.lua
+scripts/ButtonMoving.lua
+scripts/OverlayFrame.lua
+scripts/Startup.lua
+scripts/Timers.lua
+
+## Props and Frames
+scripts/PropertySheets.lua
+scripts/AddonProperties.lua
+scripts/Slash.lua
+PropertiesButton.xml
+PropertiesGlobal.xml
+
+
