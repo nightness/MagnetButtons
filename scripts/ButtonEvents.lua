@@ -147,11 +147,11 @@ function addon.OnReceiveDrag(self)
 		self:SetAttribute("texture", icon:GetTexture());
 		addon.SaveButton(self);
 	elseif (infoType == "battlepet") then
-		local speciesID, customName, level, xp, maxXp, displayID, isFavorite, name, icon, petType, creatureID,
-			sourceText, description, isWild, canBattle, tradable, unique, obtainable = C_PetJournal.GetPetInfoByPetID(info1);
-		DoIt.Debug("battlepet: "..tostring(info1))
-		-- C_PetJournal.SummonPetByGUID(C_PetJournal.GetSummonedPetGUID()), dimiss current pet, verify C_PetJournal.GetSummonedPetGUID()
-		-- is not nil.
+		local speciesID, customName, level, xp, maxXp, displayID, isFavorite, name, icon, petType, creatureID, sourceText, description, isWild, canBattle, tradable, unique, obtainable = C_PetJournal.GetPetInfoByPetID(info1)
+		-- DoIt.Debug("info1: "..tostring(info1).." info2: "..tostring(info2).." info3: "..tostring(info3));
+		self:SetAttribute("tooltip", name);
+		addon.SetMacroText(self:GetParent(), "/script C_PetJournal.SummonPetByGUID(\""..info1.."\")", icon, name, nil, "macro", "/dismount");
+		addon.SaveButton(self);
 	elseif (infoType == "companion") then
 		-- local name = addon.FindCompanionByName(info1);
 		-- DoIt.Echo("OnReceiveDrag: SetCompanion"..tostring(info1)..", "..tostring(info2)..", "..tostring(info3));
